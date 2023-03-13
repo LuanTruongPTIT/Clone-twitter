@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
+
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -30,7 +31,7 @@ const userSchema = new Schema({
   },
   profilePic: {
     type: String,
-    default: ""
+    default: "/image/luantruong.jpg"
   }
 },
   {
@@ -52,5 +53,5 @@ const userSchema = new Schema({
     }
   }
 )
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;

@@ -1,7 +1,8 @@
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+require('dotenv').config();
 const authController = {
-
   registerUser: async (req, res) => {
     // const { username, password, email } = req.body;
     const firstName = req.body.firstName.trim();
@@ -29,12 +30,23 @@ const authController = {
       }
     }
   },
-  loginUser: async (req, res) => {
-
+  getloginUser: async (req, res) => {
     return res.render('Login.ejs')
   },
   getRegister: async (req, res) => {
     return res.render('register.ejs')
+  },
+  loginUser: async (req, res) => {
+    const { username, password } = req.body;
+    const secret_key = "twitter"
+    const user = await User.findOne({ username });
+    if (!user) return res.status(404).json({ message: "User not found" })
+    const result = await bcrypt.compare(password, user.password);
+    if (!result) return res.status(404).json({ message: 'Invalid credentials' });
+    req.session.user = user;
+    const token = jwt.sign({ id: user._id }, secret_key, { expiresIn: '1h' });
+    return res.status(200).json(token);
   }
 }
+
 module.exports = authController;

@@ -15,9 +15,10 @@
   <div class="wrapper">
     <div class="loginContainer">
       <h1>Login</h1>
-      <form method="post">
-        <input type="text" name="logUsername" placeholder="Username or email" required="">
-        <input type="password" name="logPassword" placeholder="Password" required="">
+      <span class="error"></span>
+      <form id="loginForm" action="/login" method="Post">
+        <input type="text" id="username" name="logUsername" placeholder="Username or email">
+        <input type="password" id="password" name="logPassword" placeholder="Password">
         <input type="submit" value="Login">
       </form><a href="/register">Need an account? Register here.</a>
     </div>
@@ -30,6 +31,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <script src="/js/common.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

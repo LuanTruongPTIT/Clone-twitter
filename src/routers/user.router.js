@@ -5,7 +5,8 @@ const authController = require('../controller/UserController')
 const routers = express.Router();
 
 routers.post('/register', authController.registerUser)
-routers.get('/login', authController.loginUser)
+routers.get('/login-user', middleware.requireLogin, authController.getloginUser)
 routers.get('/register', authController.getRegister)
-routers.get('/', getTrangChu)
+// routers.get('/', getTrangChu)
+routers.post('/login', authController.loginUser)
 module.exports = routers;
