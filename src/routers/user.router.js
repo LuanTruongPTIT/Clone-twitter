@@ -9,4 +9,5 @@ routers.get('/login-user', middleware.requireLogin, authController.getloginUser)
 routers.get('/register', authController.getRegister)
 // routers.get('/', getTrangChu)
 routers.post('/login', authController.loginUser)
+
 module.exports = routers;

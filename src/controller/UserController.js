@@ -40,6 +40,7 @@ const authController = {
     const { username, password } = req.body;
     const secret_key = "twitter"
     const user = await User.findOne({ username });
+    // console.log(user)
     if (!user) return res.status(404).json({ message: "User not found" })
     const result = await bcrypt.compare(password, user.password);
     if (!result) return res.status(404).json({ message: 'Invalid credentials' });

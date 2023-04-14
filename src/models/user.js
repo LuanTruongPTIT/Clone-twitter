@@ -32,7 +32,13 @@ const userSchema = new Schema({
   profilePic: {
     type: String,
     default: "/image/luantruong.jpg"
-  }
+  },
+  likes:
+    [{
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+    }],
+  retweets: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 },
   {
     timestamps: true,

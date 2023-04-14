@@ -4,6 +4,16 @@
   --buttonHoverBg: #d4edff;
   --lightGrey: rgb(230, 236, 240);
   --spacing: 15px;
+  --greyText: rgb(101, 119, 134);
+  --greyButtonText: rgba(0, 0, 0, 0.34);
+  --red: rgb(226, 34, 94);
+  --redBackground: rgba(226, 34, 94, 0.1);
+  --green: rgb(23, 191, 99);
+  --greenBackground: rgba(23, 191, 99, 0.1);
+}
+
+body {
+  background-color: rgb(0, 0, 0);
 }
 
 * {
@@ -53,12 +63,27 @@ nav a:hover {
   border-radius: 50%;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  /* color: var(--greyButtonText); */
+  color: rgb(113, 118, 123)
+}
+
+button i,
+button span {
+  pointer-events: none;
+}
+
 .mainSectionContainer {
   padding: 0;
-  border-left: 1px solid var(--lightGrey);
-  border-right: 1px solid var(--lightGrey);
+
+  border-color: rgb(47, 51, 54);
   display: flex;
   flex-direction: column;
+  border-left: 1px solid rgb(47, 51, 54);
+  border-right: 1px solid rgb(47, 51, 54);
+  border-bottom: 1px solid rgb(47, 51, 54);
 }
 
 .titleContainer {
@@ -66,7 +91,8 @@ nav a:hover {
   padding: 0 var(--spacing);
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--lightGrey);
+  /* border-bottom: 1px solid var(--lightGrey); */
+  border-bottom: 1px solid rgb(47, 51, 54);
   flex-shrink: 0;
 }
 
@@ -77,8 +103,19 @@ nav a:hover {
 .postFormContainer {
   display: flex;
   padding: var(--spacing);
-  border-bottom: 10px solid rgb(230, 236, 240);
+  /* border-bottom: 10px solid rgb(230, 236, 240); */
+  border-bottom: 1px solid rgb(47, 51, 54);
   flex-shrink: 0;
+}
+
+.modal .postFormContainer {
+  border: none;
+  padding: 0;
+  padding-top: var(--spacing);
+}
+
+.modal .post {
+  padding: 0 0 var(--spacing) 0;
 }
 
 .userImageContainer {
@@ -112,10 +149,152 @@ nav a:hover {
   padding: 7px 15px;
 }
 
-#submitPostButton:hover {
-  background-color: #86CBFA
-}
-
 #submitPostButton:disabled {
   background-color: var(--blueLight);
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  cursor: pointer;
+  /* border-bottom: 1px solid var(--lightGrey); */
+  border-bottom: 1px solid rgb(47, 51, 54);
+  flex-shrink: 0;
+}
+
+.mainContentContainer {
+  flex: 1;
+  display: flex;
+}
+
+.postContentContainer {
+  padding-left: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.username,
+.date {
+  color: var(--greyText)
+}
+
+.displayName {
+  font-weight: bold;
+  color: white
+}
+
+.postFooter {
+  display: flex;
+  align-items: center;
+}
+
+.postFooter .postButtonContainer {
+  flex: 1;
+  display: flex;
+}
+
+.postFooter .postButtonContainer button {
+  padding: 2px 5px;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.header a,
+.header span {
+  padding-right: 5px;
+}
+
+.postButtonContainer button:hover {
+  background-color: #d4edff;
+  color: var(--blue);
+  border-radius: 50%;
+}
+
+.postButtonContainer.red button.active {
+  color: var(--red);
+}
+
+.postButtonContainer.red button:hover {
+  color: var(--red);
+  background-color: var(--redBackground)
+}
+
+.postButtonContainer.green button.active {
+  color: var(--green);
+}
+
+.postButtonContainer.green button:hover {
+  color: var(--green);
+  background-color: var(--greenBackground)
+}
+
+.postActionContainer {
+  padding-left: 35px;
+  font-size: 13px;
+  color: var(--greyText);
+  margin-bottom: 5px;
+}
+
+.replyFlag {
+  margin-bottom: 5px;
+}
+
+.replyFlag a {
+  color: var(--blue);
+}
+
+.r-8kz0gk {
+  height: 2rem;
+}
+
+.r-13v1u17 {
+  color: rgb(214, 217, 219);
+}
+
+.r-lrsllp {
+  width: 24px;
+}
+
+.r-1plcrui {
+  vertical-align: text-bottom;
+}
+
+.r-bnwqim {
+  position: relative;
+}
+
+.r-dnmrzs {
+  max-width: 100%;
+}
+
+.r-4qtqp9 {
+  display: inline-block;
+}
+
+.r-b88u0q {
+  font-weight: 700;
+}
+
+.r-a023e6 {
+  font-size: 15px;
+}
+
+.r-rjixqe {
+  line-height: 20px;
+}
+
+.r-qvutc0 {
+  word-wrap: break-word;
+}
+
+.r-1bwzh9t {
+  color: rgb(113, 118, 123);
+}
+
+.r-1nao33i {
+  color: rgb(231, 233, 234);
 }

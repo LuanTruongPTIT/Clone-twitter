@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000;
 const Blog = require('./models/blog')
 const userRouter = require('./routers/user.router');
@@ -7,12 +8,13 @@ const homeRouter = require('./routers/home.router');
 const session = require('express-session');
 const configViewEngine = require('./config/viewEngine')
 require('dotenv').config();
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: false }));
 app.use(session({
   secret: "LuanTruong",
-  resave: false, // dat lai session cho moi request
-  saveUninitialized: true,
+  resave: true, // dat lai session cho moi request
+  saveUninitialized: false,
   cookie: {
     secure: false,
     maxAge: 24 * 60 * 60 * 1000 //1day
